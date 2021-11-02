@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Section!</title>
+
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                let button = document.getElementById("button");
+                let clickFunction = function() {
+                    let title = document.getElementById("title");
+                    title.innerHTML = "Other Title";
+                    console.log("We're in the function!");
+
+                    // Send request to server
+                };
+                button.onclick = clickFunction;
+            });
+            
+        </script>
+
+    </head>
+    <body>
+        <h1 id="title">Section Site</h1>
+        <p id="text">This is week 8 section!</p>
+        <button id="button">Click Me!</button>
+    </body>
+</html>

@@ -7,9 +7,43 @@
         <title>Trivia!</title>
 
         <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                // TODO: Add code to check answers to questions
+                // Multiple Choice
 
-            // TODO: Add code to check answers to questions
+                let feedback = document.getElementById("feedback");
 
+                let correctButton = document.getElementById("correct");
+                correctButton.onclick = function(){
+                    correctButton.style.backgroundColor = "green";
+                    feedback.innerHTML = "Correct!";
+                };
+
+                let incorrectButtons = document.getElementsByClassName("wrong");
+                for (let incorrectButton of incorrectButtons) {
+                    incorrectButton.onclick = function(){
+                        incorrectButton.style.backgroundColor = "red";
+                        feedback.innerHTML = "Incorrect";
+                    }
+                }
+
+                // Free response
+                let answer = document.getElementById("answer");
+                let correctAnswer = "Dunster";
+                let submit = document.getElementById("free-submit");
+                let feedback2 = document.getElementById("feedback2");
+                submit.onclick = function() {
+                    if (answer.value == correctAnswer) {
+                        feedback2.innerHTML = "Correct!";
+                        answer.style.backgroundColor = "green";
+                    } else {
+                        feedback2.innerHTML = "Incorrect";
+                        answer.style.backgroundColor = "red";
+                    }
+                }
+
+            });
+            
         </script>
 
     </head>
@@ -24,9 +58,14 @@
             <div class="section">
                 <h2>Part 1: Multiple Choice </h2>
                 <hr>
-
                 <!-- TODO: Add multiple choice question here -->
-
+                <h4>In what year was Harvard founded?</h4>
+                <h4 id="feedback"></h4>
+                <button class="wrong">1703</button>
+                <button class="wrong">2021</button>
+                <button id="correct">1636</button>
+                <button class="wrong">1955</button>
+                <button class="wrong">0</button>
             </div>
 
             <div class="section">
@@ -34,7 +73,10 @@
                 <hr>
 
                 <!-- TODO: Add free response question here -->
-
+                <h4>What is the best house at Harvard?</h4>
+                <h4 id="feedback2"></h4>
+                <input type="text" id="answer">
+                <button id="free-submit">Submit!</button>
             </div>
 
         </div>
